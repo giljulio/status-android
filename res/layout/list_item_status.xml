@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp" >
+
+    <ImageView
+        android:id="@+id/list_item_status_thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/common_signin_btn_icon_dark" />
+
+    <TextView
+        android:id="@+id/list_item_status_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-light"
+        android:layout_alignTop="@+id/list_item_status_thumbnail"
+        android:layout_marginLeft="21dp"
+        android:layout_toRightOf="@+id/list_item_status_thumbnail"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/list_item_status_meta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_alignLeft="@+id/list_item_status_user_name"
+        android:layout_below="@+id/list_item_status_user_name"
+        android:text="Small Text"
+        android:alpha="0.6"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/list_item_status_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/list_item_status_thumbnail"
+        android:layout_marginTop="22dp"
+        android:textSize="16sp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="TextView" />
+
+</RelativeLayout>
