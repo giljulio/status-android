@@ -33,12 +33,34 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
 	    android:orientation="vertical"
-        android:background="#111">
+        android:background="#FFF">
+        
+		<TextView
+		    android:id="@+id/filter_tsgs_header"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    style="?android:listSeparatorTextViewStyle"
+        	android:layout_marginTop="12dp"
+		    android:text="Filter by Tags"/>
         <EditText 
             android:id="@+id/filter_tags"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:hint="e.g. #medical"/>
+		<TextView
+		    android:id="@+id/filter_atmentions_header"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    style="?android:listSeparatorTextViewStyle"
+        	android:layout_marginTop="12dp"
+		    android:text="Filter by Mentions"/>
+        <EditText 
+            android:id="@+id/filter_atmentions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="e.g. @johnsmith"/>
 	</LinearLayout>
 	
 </android.support.v4.widget.DrawerLayout>

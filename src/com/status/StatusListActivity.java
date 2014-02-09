@@ -2,6 +2,9 @@ package com.status;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+
+import com.status.model.Status;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -64,7 +67,7 @@ public class StatusListActivity extends FragmentActivity implements
 		setContentView(R.layout.activity_status_list);
 
         mTitle = mDrawerTitle = getTitle();
-        mPlanetTitles = new String[]{"Home", "Home", "Home"};
+        mPlanetTitles = new String[]{"Feed", "Intouch", "Overlays", "Settings"};
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLeftList = (ListView) findViewById(R.id.left_drawer);
         mDrawerRight = (LinearLayout) findViewById(R.id.right_drawer);
@@ -130,23 +133,25 @@ public class StatusListActivity extends FragmentActivity implements
 	 * the item with the given ID was selected.
 	 */
 	@Override
-	public void onItemSelected(String id) {
+	public void onItemSelected(Status selectedStatus, ArrayList<Status> statusList) {
 		if (mTwoPane) {
 			// In two-pane mode, show the detail view in this activity by
 			// adding or replacing the detail fragment using a
 			// fragment transaction.
 			Bundle arguments = new Bundle();
-			arguments.putString(StatusDetailFragment.ARG_ITEM_ID, id);
+			arguments.putSerializable(StatusDetailFragment.ARG_SELECTED_ITEM, selectedStatus);
+			arguments.putSerializable(StatusDetailFragment.ARG_ITEM_LIST, statusList);
 			StatusDetailFragment fragment = new StatusDetailFragment();
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()
 				.replace(R.id.status_detail_container, fragment).commit();
-
+			
 		} else {
 			// In single-pane mode, simply start the detail activity
 			// for the selected item ID.
 			Intent detailIntent = new Intent(this, StatusDetailActivity.class);
-			detailIntent.putExtra(StatusDetailFragment.ARG_ITEM_ID, id);
+			detailIntent.putExtra(StatusDetailFragment.ARG_SELECTED_ITEM, selectedStatus);
+			detailIntent.putExtra(StatusDetailFragment.ARG_ITEM_LIST, statusList);
 			startActivity(detailIntent);
 		}
 	}

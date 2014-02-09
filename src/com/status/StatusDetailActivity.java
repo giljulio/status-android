@@ -37,8 +37,10 @@ public class StatusDetailActivity extends FragmentActivity {
 			// Create the detail fragment and add it to the activity
 			// using a fragment transaction.
 			Bundle arguments = new Bundle();
-			arguments.putString(StatusDetailFragment.ARG_ITEM_ID, getIntent()
-					.getStringExtra(StatusDetailFragment.ARG_ITEM_ID));
+			arguments.putSerializable(StatusDetailFragment.ARG_ITEM_LIST, getIntent()
+					.getSerializableExtra(StatusDetailFragment.ARG_ITEM_LIST));
+			arguments.putSerializable(StatusDetailFragment.ARG_SELECTED_ITEM, getIntent()
+					.getSerializableExtra(StatusDetailFragment.ARG_SELECTED_ITEM));
 			StatusDetailFragment fragment = new StatusDetailFragment();
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()

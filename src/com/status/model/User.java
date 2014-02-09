@@ -1,11 +1,13 @@
 package com.status.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 	
-	public User(String forename, String surname, String imageUrl){
+	public User(String forename, String surname, int imageRes){
 		mForename = forename;
 		mSurname = surname;
-		mImageUrl = imageUrl;
+		mImageRes = imageRes;
 	}
 
 	public String mForename;
@@ -13,5 +15,7 @@ public class User {
 	public String mSurname;
 	
 	public String mImageUrl;
+	
+	public int mImageRes;
 
 }
